@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('descripiton');
             $table->string('title');
             $table->integer('position');
-            $table->foreignId('boardlist_id')->constrained()->onDelete('cascade');
+            $table->foreignId('board_list_id')->constrained()->onDelete('cascade');
         });
     }
 

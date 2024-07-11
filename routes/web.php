@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BoardController;
+use App\Http\Controllers\BoardListController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+//Ressource permet de prendre tout les types de routes: post, put, delete, edit
 Route::resource('boards', BoardController::class);
+Route::resource('boardlists', BoardListController::class);
 
 require __DIR__ . '/auth.php';
