@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.rose {
+    color: #FD4F84
+}
+
+.bg-rose {
+    background-color: #FD4F84;
+}
+
+.blanc {
+    color: #D9D3C1;
+}
+
+.bg-blanc {
+    background-color: #D9D3C1;
+}
+
+.jaune {
+    color: #F2AE30;
+}
+
+.bg-jaune {
+    background-color: #F2AE30;
+}
+
+.peche {
+    color: #F29D35;
+}
+
+.bg-peche {
+    background-color: #F29D35;
+}
+
+.orange {
+    color: #FA6620;
+}
+
+.bg-orange {
+    background-color: #FA6620;
+}
