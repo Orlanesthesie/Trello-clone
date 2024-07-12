@@ -8,15 +8,18 @@ use Illuminate\Support\Facades\Auth;
 
 class BoardListController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $board_id = $request->query('board_id');
         $boardlists = BoardLists::all();
+
         return view('boardlists.index', compact('boardlists'));
     }
 
     public function create(Request $request)
     {
         $board_id = $request->query('board_id');
+
         return view('boardlists.create', ['board_id' => $board_id]);
     }
 
@@ -25,14 +28,14 @@ class BoardListController extends Controller
     {
         $userid = $request->user()->id;
         $data = $request->all();
-        $list = new BoardLists();
 
+        $list = new BoardLists();
         $list->title = $data['title'];
         $list->board_id = $data['board_id'];
         $list->position = 0;
         $list->save();
 
-        return redirect()->route('boardlists.index')->with('success', 'Board List created successfully.');
+        return redirect()->route('boards.show', ['board' => $list->board_id])->with('success', 'Board List created successfully.');
     }
 
     public function show($id)
@@ -59,11 +62,16 @@ class BoardListController extends Controller
         return redirect()->route('boardlists.index')->with('success', 'Board List updated successfully.');
     }
 
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
+        
         $boardlist = BoardLists::findOrFail($id);
         $boardlist->delete();
+        // $boardId = $request->route('board');
+        // dd($boardId);
 
-        return redirect()->route('boardlists.index')->with('success', 'Board List deleted successfully.');
+        // return redirect()->route('boards.show', ['board' => $boardId])->with('success', 'Board List deleted successfully.');
+        return redirect()->route('boards.index',)->with('success', 'Board List deleted successfully.');
+
     }
 }

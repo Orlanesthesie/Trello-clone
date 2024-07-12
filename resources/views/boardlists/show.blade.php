@@ -20,11 +20,11 @@
                         <a href="{{ route('boardlist.edit', $boardlist->id) }}" class="bg-peche text-white px-4 py-2 rounded-md shadow-md hover:bg-peche-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-peche">
                             Edit
                         </a>
-                        <form action="{{ route('boardlist.destroy', $boardlist->id) }}" method="POST" style="display:inline-block;">
+                    <form action="{{ route('boards.destroy', $board->id) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                                Delete
+                                DAlete
                             </button>
                         </form>
                     </div>

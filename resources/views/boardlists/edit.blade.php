@@ -20,12 +20,12 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('boardlist.update', $boardlist->id) }}" method="POST">
+                    <form action="{{ route('boardlists.update', $boardlist->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="mb-4">
-                            <label for="name" class="block text-gray-700">Name:</label>
-                            <input type="text" name="name" id="name" value="{{ old('name', $boardlist->name) }}" class="w-full border-gray-300 rounded-md shadow-sm">
+                            <label for="title" class="block text-gray-700">Title::</label>
+                            <input type="text" name="title" id="title" value="{{ old('title', $boardlist->title) }}" class="w-full border-gray-300 rounded-md shadow-sm">
                         </div>
                         <div class="mb-4">
                             <label for="description" class="block text-gray-700">Description:</label>
@@ -34,7 +34,7 @@
                         <button type="submit" class="bg-peche text-white px-4 py-2 rounded-md shadow-md hover:bg-peche-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-peche">Update</button>
                     </form>
 
-                    <a href="{{ route('boardlist.index') }}" class="text-blue-500 mt-4 inline-block">Back to list</a>
+                    <a href="{{ route('boards.index') }}" class="text-blue-500 mt-4 inline-block">Back to list</a>
                 </div>
             </div>
         </div>

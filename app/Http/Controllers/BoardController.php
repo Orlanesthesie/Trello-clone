@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BoardLists;
 use App\Models\Boards;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,7 @@ class BoardController extends Controller
 {
     public function index()
     {
-        
+
         $boards = Boards::all();
         return view('boards.index', compact('boards'));
     }
@@ -35,7 +36,8 @@ class BoardController extends Controller
     public function show($id)
     {
         $board = Boards::findOrFail($id);
-        return view('boards.show', compact('board'));
+        $boardlists = BoardLists::where('board_id', $board->id)->get();
+        return view('boards.show', compact('board', 'boardlists'));
     }
 
     public function edit($id)
@@ -65,6 +67,6 @@ class BoardController extends Controller
         $board = Boards::findOrFail($id);
         $board->delete();
 
-        return redirect()->route('boards.index')->with('success', 'Board deleted successfully.');
+        return redirect()->route('boards.show', ['board' => $id])->with('success', 'Board deleted successfully.');
     }
 }

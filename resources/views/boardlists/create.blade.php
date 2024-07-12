@@ -25,12 +25,10 @@
                             <label for="title" class="block text-gray-700">Title:</label>
                             <input type="text" name="title" id="title" value="{{ old('title') }}" class="w-full border-gray-300 rounded-md shadow-sm">
                         </div>
-                        <div class="mb-4">
-                            <label for="description" class="block text-gray-700">Description:</label>
-                            <textarea name="description" id="description" class="w-full border-gray-300 rounded-md shadow-sm">{{ old('description') }}</textarea>
-                        </div>
                         <input type="hidden" name="board_id" value="{{ $board_id }}">
-                        <button type="submit" class="bg-rose text-white px-4 py-2 rounded-md shadow-md hover:bg-rose-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose">Create</button>
+                        <button type="submit" class="bg-rose text-white px-4 py-2 rounded-md shadow-md hover:bg-rose-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose">
+                            Create
+                        </button>
                     </form>
                     <button class="bg-orange text-white px-4 py-2 rounded-md shadow-md mt-2"> <a href="{{ route('boards.index') }}">Back to list</a></button>
                 </div>
