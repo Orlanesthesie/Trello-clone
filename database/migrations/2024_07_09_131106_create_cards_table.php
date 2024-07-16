@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('descripiton');
+            $table->string('description');
             $table->string('title');
             $table->integer('position');
             $table->foreignId('board_list_id')->constrained()->onDelete('cascade');

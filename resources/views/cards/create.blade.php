@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-blanc leading-tight">
-            {{ __('Create Board List') }}
+            {{ __('Create Card') }}
         </h2>
     </x-slot>
 
@@ -18,18 +18,24 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ route('boardlists.store') }}" method="POST" class="space-y-6">
+                    <form action="{{ route('cards.store') }}" method="POST" class="space-y-6">
                         @csrf
-                        <div class="mb-4">
+                        <div>
                             <label for="title" class="block text-black font-semibold">Title:</label>
-                            <input type="text" name="title" id="title" value="{{ old('title') }}" class="w-full border-gray-300 rounded-md shadow-sm">
+                            <input type="text" name="title" id="title" value="{{ old('title') }}" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md ">
                         </div>
-                        <input type="hidden" name="board_id" value="{{ $board_id }}">
-                        <button type="submit" class="bg-rose text-white px-4 py-2 rounded-md shadow-md">
+                        <input type="hidden" name="boardlist_id" value="{{$boardlist_id}}">
+                        <div>
+                            <label for="description" class="block text-black font-semibold">Description:</label>
+                            <textarea name="description" id="description" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md">{{ old('description') }}</textarea>
+                        </div>
+                        <button type="submit" class="bg-rose text-white px-4 py-2 rounded-md">
                             Create
                         </button>
                     </form>
-                    <button class="bg-orange text-white px-4 py-2 rounded-md shadow-md mt-2"> <a href="{{ route('boards.index') }}">Back to list</a></button>
+                    <button class="bg-orange text-white px-4 py-2 rounded-md shadow-md mt-2"> 
+                        <a href="{{ route('boards.index') }}">Back to list</a>
+                    </button>
                 </div>
             </div>
         </div>

@@ -9,10 +9,10 @@ class Cards extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'list_id'];
+    protected $fillable = ['title', 'description', 'board_list_id'];
 
     public function lists()
     {
-        return $this->belongsTo(BoardLists::class);
+        return $this->belongsTo(BoardLists::class, 'board_list_id');
     }
 }

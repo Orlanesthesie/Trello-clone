@@ -24,17 +24,15 @@
                         @csrf
                         @method('PUT')
                         <div class="mb-4">
-                            <label for="title" class="block text-gray-700">Title::</label>
+                            <label for="title" class="block text-gray-700">Title:</label>
                             <input type="text" name="title" id="title" value="{{ old('title', $boardlist->title) }}" class="w-full border-gray-300 rounded-md shadow-sm">
                         </div>
-                        <div class="mb-4">
-                            <label for="description" class="block text-gray-700">Description:</label>
-                            <textarea name="description" id="description" class="w-full border-gray-300 rounded-md shadow-sm">{{ old('description', $boardlist->description) }}</textarea>
-                        </div>
-                        <button type="submit" class="bg-peche text-white px-4 py-2 rounded-md shadow-md hover:bg-peche-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-peche">Update</button>
+                        <button type="submit" class="bg-rose text-white px-4 py-2 rounded-md mb-3 shadow-md hover:bg-peche-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-peche">Update</button>
                     </form>
 
-                    <a href="{{ route('boards.index') }}" class="text-blue-500 mt-4 inline-block">Back to list</a>
+                    <a href="{{ route('boards.show', ['board' => $boardlist->board_id]) }}" class="bg-orange text-white px-4 py-2  rounded-md shadow-md hover:bg-peche-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-peche">
+                        Back to list
+                    </a>
                 </div>
             </div>
         </div>

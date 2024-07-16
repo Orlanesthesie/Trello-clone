@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BoardController;
 use App\Http\Controllers\BoardListController;
+use App\Http\Controllers\CardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,5 +34,9 @@ Route::middleware('auth')->group(function () {
 //Ressource permet de prendre tout les types de routes: post, put, delete, edit
 Route::resource('boards', BoardController::class);
 Route::resource('boardlists', BoardListController::class);
+Route::get('/cards/create/{id}', [CardController::class, 'create'])->name('cards.create');
+Route::resource('cards', CardController::class)
+    ->only(['index', 'store', 'edit', 'update', 'destroy']);
+
 
 require __DIR__ . '/auth.php';

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BoardLists;
 use App\Models\Boards;
+use App\Models\Cards;
 use Illuminate\Http\Request;
 
 class BoardController extends Controller
@@ -36,13 +37,16 @@ class BoardController extends Controller
     public function show($id)
     {
         $board = Boards::findOrFail($id);
-        $boardlists = BoardLists::where('board_id', $board->id)->get();
+        $boardlists = BoardLists::where('board_id', $board->id)->with('cards')->get();
+        $cards = Cards::where('board_list_id')->get();
+
         return view('boards.show', compact('board', 'boardlists'));
     }
 
     public function edit($id)
     {
         $board = Boards::findOrFail($id);
+
         return view('boards.edit', compact('board'));
     }
 
@@ -59,7 +63,8 @@ class BoardController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect()->route('boards.index')->with('success', 'Board updated successfully.');
+        return redirect()->back()->with('success', 'Board updated successfully.');
+
     }
 
     public function destroy($id)
@@ -67,6 +72,7 @@ class BoardController extends Controller
         $board = Boards::findOrFail($id);
         $board->delete();
 
-        return redirect()->route('boards.show', ['board' => $id])->with('success', 'Board deleted successfully.');
+        return redirect()->back()->with('success', 'Board deleted successfully.');
+
     }
 }
