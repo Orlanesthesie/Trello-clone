@@ -55,7 +55,6 @@ class BoardListController extends Controller
 
     public function update(Request $request, $id)
     {
-        // dd($request);
         $request->validate([
             'title' => 'required|max:255',
         ]);

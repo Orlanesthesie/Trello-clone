@@ -1,4 +1,3 @@
-<!-- resources/views/boardlist/edit.blade.php -->
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-blanc leading-tight">
@@ -27,10 +26,10 @@
                             <label for="title" class="block text-gray-700">Title:</label>
                             <input type="text" name="title" id="title" value="{{ old('title', $boardlist->title) }}" class="w-full border-gray-300 rounded-md shadow-sm">
                         </div>
-                        <button type="submit" class="bg-rose text-white px-4 py-2 rounded-md mb-3 shadow-md hover:bg-peche-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-peche">Update</button>
+                        <button type="submit" class="bg-rose text-white px-4 py-2 rounded-md mb-3">Update</button>
                     </form>
 
-                    <a href="{{ route('boards.show', ['board' => $boardlist->board_id]) }}" class="bg-orange text-white px-4 py-2  rounded-md shadow-md hover:bg-peche-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-peche">
+                    <a href="{{ route('boards.show', ['board' => $boardlist->board_id]) }}" class="bg-orange text-white px-4 py-2  rounded-md ">
                         Back to list
                     </a>
                 </div>

@@ -24,7 +24,7 @@
                             <label for="title" class="block text-black font-semibold">Title:</label>
                             <input type="text" name="title" id="title" value="{{ old('title') }}" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md ">
                         </div>
-                        <input type="hidden" name="boardlist_id" value="{{$boardlist_id}}">
+                        <input type="hidden" name="board_list_id" value="{{$boardlist_id}}">
                         <div>
                             <label for="description" class="block text-black font-semibold">Description:</label>
                             <textarea name="description" id="description" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md">{{ old('description') }}</textarea>
@@ -34,7 +34,7 @@
                         </button>
                     </form>
                     <button class="bg-orange text-white px-4 py-2 rounded-md shadow-md mt-2"> 
-                        <a href="{{ route('boards.index') }}">Back to list</a>
+                        <a href="{{ route('boards.show', $boardlist->board_id) }}">Back to list</a>
                     </button>
                 </div>
             </div>

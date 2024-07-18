@@ -63,7 +63,8 @@ class BoardController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect()->back()->with('success', 'Board updated successfully.');
+        // return redirect()->back()->with('success', 'Board updated successfully.');
+        return view('boards.index', compact('board'));
 
     }
 
